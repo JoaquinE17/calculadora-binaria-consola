@@ -1,6 +1,5 @@
 import os
-import time 
-#import keyboard(Implementacion -> Version 2)
+import time
 
 def CursorSelector():
     os.system("cls")
