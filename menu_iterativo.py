@@ -48,3 +48,16 @@ def CursorSelector():
                 time.sleep(.4)
                 os.system("cls")
                 break
+
+def continuar():
+    pasiencia=0
+    seguir=input(">_Continuar operando [S] o [N]: ").lower()
+    if seguir!='s' or seguir!='n':
+        while seguir!='s' and seguir!='n' and pasiencia<3:
+            print("Opcion incorrecta..")
+            seguir=input(">_Solo se permite [S] o [N]: ").lower()
+            pasiencia+=1
+        if pasiencia==3 and seguir!='s' and seguir!='n':
+            print(">_Pasiencia colmada..")
+            return 'n'
+    return seguir

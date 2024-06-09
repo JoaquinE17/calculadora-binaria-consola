@@ -3,21 +3,6 @@ import time
 import menu_iterativo
 import operaciones_binarias
 
-def continuar():
-    pasiencia=0
-    seguir=input(">_Continuar operando [S] o [N]: ").lower()
-    if seguir!='s' or seguir!='n':
-        while seguir!='s' and seguir!='n' and pasiencia<3:
-            print("Opcion incorrecta..")
-            seguir=input(">_Solo se permite [S] o [N]: ").lower()
-            pasiencia+=1
-        if pasiencia==3 and seguir!='s' and seguir!='n':
-            print(">_Pasiencia colmada..")
-            return 'n'
-    return seguir
-            
-#MAIN__________________________________________________________________________
-
 while(True):
     seleccion=menu_iterativo.CursorSelector()
     match seleccion:
@@ -63,11 +48,11 @@ while(True):
                 print("Error: Ambos números deben ser bianarios .")
         case 'q':
             break
-    son=continuar()
-    if son=='s' or son=='n':
-        if (son=='n'):
+    seguir=menu_iterativo.continuar()
+    if seguir=='s' or seguir=='n':
+        if (seguir=='n'):
             print("Saliendo..")
             time.sleep(.5)
             break
-        elif (son=='s'):           
+        elif (seguir=='s'):           
             os.system("cls")

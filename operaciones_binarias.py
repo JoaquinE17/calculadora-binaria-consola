@@ -9,23 +9,14 @@ def BiDe(n):
     return p_dos
 
 def DeBi(n):
-    binario=[]
-    while(True):
-        if (n==0 or n==1):
-            binario.append(n)
-            break
-        else:
-            if (n%2==0):
-                binario.append(0)
-            elif (n%2==1):
-                binario.append(1)
-        cociente=n//2
-        n=cociente
-    rf=binario[::-1] #[::-1]-->Invertir lista
-    bf=""
-    for i in range(len(binario)):
-        bf+=str(rf[i])
-    return bf
+    if n == 0:
+        return "0"
+    binario = ""
+    while n > 0:
+        bit = n % 2
+        binario = str(bit) + binario
+        n //= 2
+    return binario
 
 def SuBi(m,n):
     Dem=BiDe(m)
@@ -37,7 +28,7 @@ def Rebi(m,n):
     Den=BiDe(n)
     return (DeBi(Dem-Den))
     
-def MuBi(m,n):        #11010 % 101
+def MuBi(m,n):
     Dem=BiDe(m)
     Den=BiDe(n)
     return (DeBi(Dem*Den))
